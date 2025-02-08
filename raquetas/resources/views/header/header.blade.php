@@ -11,9 +11,10 @@
                             <a href="{{ route('mochilas') }}">Mochilas</a>
                         </div>
                     </div>
-                    <a href="categorias/ropa.html">Ropa</a>
-                    <a href="categorias/calzado.html">Calzado</a>
-                    <a href="categorias/pelotas.html">Pelotas</a>
+                    <a href="{{ route('ropa') }}">Ropa</a>
+                    <a href="{{ route('calzado') }}">Calzado</a>
+                    <a href="{{ route('pelotas') }}">Pelotas</a>
+                    @yield('admin')
                 </div>
             </div>
         </div>

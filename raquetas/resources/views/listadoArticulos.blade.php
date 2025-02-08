@@ -7,7 +7,7 @@ Pagina palas
 <main>
     <!-- <h1>PAGINA ARTICULOS</h1> -->
     <section class="productos">
-
+    
     @foreach($articulo as $item)
             <article>
                 <img src="{{ asset($item->img) }}" alt="Pala de pádel" width="100">
