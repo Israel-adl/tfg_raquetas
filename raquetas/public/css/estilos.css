@@ -1,0 +1,201 @@
+/* Estilos generales */
+body {
+    background-image: url(IMAGENES/paddle-tennis-white-line.jpg);
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Hace que la imagen de fondo se quede fija al hacer scroll */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+header {
+    background-color: #d3e9ff; /* Azul claro */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+
+}
+
+h1 {
+    margin: 0;
+    color: #007acc; /* Azul más oscuro */
+    text-align: center; /* Centra el texto */
+    flex-grow: 1; /* Asegura que el h1 se expanda y se centre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.encabezado-izquierda {
+    flex-grow: 0;
+    display: flex;
+    justify-content: flex-start; /* Alinea a la izquierda */
+    text-align: left;
+    width: 25%;
+}
+
+.encabezado-derecha {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 25%;
+}
+
+.elementos-derecha {
+    display: flex;
+    align-items: center; /* Alineación vertical centrada */
+    gap: 20px; /* Separar los botones con un margen mayor */
+}
+
+.barra-busqueda {
+    display: flex; /* Alinea los elementos en línea */
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 5px; /* Espacio entre la barra y el botón */
+}
+
+.barra-busqueda input {
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño del texto */
+    width: 200px; /* Ancho del buscador */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    height: 40px; /* Altura fija para igualar al botón */
+    margin: 0; /* Elimina márgenes extra */
+    vertical-align: middle; /* Alinea con el botón */
+}
+
+.barra-busqueda button {
+    padding: 0 15px; /* Espaciado interno horizontal */
+    font-size: 16px; /* Tamaño del texto */
+    height: 40px; /* Misma altura que el input */
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #a7c9e7; /* Azul claro */
+    border: none;
+    margin: 0; /* Elimina márgenes extra */
+    display: flex; /* Asegura que el contenido interno esté alineado */
+    align-items: center; /* Centra verticalmente el contenido del botón */
+    justify-content: center; /* Centra horizontalmente el contenido del botón */
+}
+
+.barra-busqueda button:hover {
+    background-color: #8bb8d3; /* Azul más oscuro */
+}
+
+.menu-desplegable {
+    position: relative;
+    margin-right: 20px;
+}
+
+.contenido-desplegable {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px;
+    text-align: left;
+}
+
+.menu-desplegable:hover .contenido-desplegable {
+    display: block;
+}
+
+.contenido-desplegable a, .contenido-desplegable .boton-desplegable {
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.contenido-desplegable a:hover, .contenido-desplegable .boton-desplegable:hover {
+    background-color: #ddd;
+}
+
+.subcategorias {
+    padding-left: 20px;
+}
+
+.boton-desplegable {
+    background-color: #a7c9e7; /* Azul claro */
+    color: #007acc;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-desplegable:hover {
+    background-color: #8bb8d3; /* Azul más oscuro */
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Centra el contenido en la pantalla */
+}
+
+#seccion-login {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Limita el ancho del formulario */
+}
+
+#seccion-login h2 {
+    text-align: center;
+    color: #007acc;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #a7c9e7; /* Azul claro */
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #8bb8d3; /* Azul más oscuro */
+}
+
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.productos{
+    display: flex;
+}

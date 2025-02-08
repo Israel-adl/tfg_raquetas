@@ -1,0 +1,12 @@
+.carrito_desplegable{
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 90;
+    background-color: #007acc;
+    z-index: 9999;
+}
+.oculto{
+    display: none;
+}
