@@ -10,12 +10,16 @@ Pagina palas
     
     @foreach($articulo as $item)
             <article>
-                <img src="{{ asset($item->img) }}" alt="Pala de pádel" width="100">
-                <h2>{{$item->nombre}}</h2>
-                {{$item->descripcion}}
-                {{$item->marca}}
-                <p>Precio: {{$item->precio}}€</p>
-                <button onclick="anadir({{$item->id}},'{{$item->precio}}')">Añadir al carro articulo con id = {{$item->id}}</button>
+                <a href="{{ route('verArticulo', ['id' => $item->id]) }}">
+                    <img src="{{ asset($item->img) }}" alt="Pala de pádel" width="100">
+                </a>
+                <div>
+                    <h2>{{$item->nombre}}</h2>
+                    <!-- {{$item->descripcion}} -->
+                    <p class="marca">{{$item->marca}}</p>
+                    <p class="precio">{{$item->precio}}€</p>
+                </div>
+                <button onclick="anadir('{{$item->id}}','{{$item->precio}}','{{asset($item->img)}}')">Añadir</button>
             </article>
     @endforeach
 

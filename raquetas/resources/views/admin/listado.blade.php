@@ -3,7 +3,7 @@
 <a href="{{ route('adminListado') }}">Admin Listado</a>
 @endsection
 @section('titulo_pagina')
-Pagina palas
+PAGINA ADMINISTRACION
 @endsection
 @section('contenido')
 <main>
@@ -20,7 +20,6 @@ Pagina palas
     border-radius: 8px;
     overflow: hidden;
 }
-
 /* Estilos para el encabezado de la tabla */
 .tabla-crud thead {
     background-color: #007bff;
@@ -88,6 +87,9 @@ a {
 
     </style>
 <div>
+    <a href="{{ route('crearadminListado')}}">
+        <button>Crear</button>
+    </a>
     <table class="tabla-crud">
         <tr>
             <th>Nombre</th>
@@ -107,12 +109,17 @@ a {
                 <td>{{$item->categoria_nombre}}</td>
                 <td><img src="{{ asset($item->img) }}" alt="Pala de pádel" height="30"></td>
                 <td style="display: flex;">
-                    <a href="">
+                    <!-- poner ruta como la de eliminar pero para ver {{-- route('verArticulo', ['id' => $item->id]) --}} 
+                        esto va dentro del href 
+                        ruta de prueba http://localhost:8000/testParametro/3
+                    -->
+                         
+                    <a href="{{ route('verArticulo', ['id' => $item->id]) }}">
                         <button>
                             Ver
                         </button>
                     </a>
-                    <a href="">
+                    <a href="{{ route('editaradminListado', ['id' => $item->id]) }}">
                         <button style="background-color:rgb(255, 207, 62); color:black;">
                             Editar
                         </button>
@@ -125,11 +132,11 @@ a {
                             </button>
                         </form>
                  
-                    <a href="">
-                        <button  style="background-color:rgb(109, 6, 92);">
+                    <!-- <a href="">
+                        <button style="background-color:rgb(109, 6, 92);">
                             Ocultar
                         </button>
-                    </a>
+                    </a> -->
                 </td>
             </tr>
     @endforeach

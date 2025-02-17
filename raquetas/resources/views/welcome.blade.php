@@ -6,6 +6,7 @@
     <title>@yield('titulo_pagina')</title>
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/carrito.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/verArticulo.css') }}">
 </head>
 <body>
 @include('../header/header')

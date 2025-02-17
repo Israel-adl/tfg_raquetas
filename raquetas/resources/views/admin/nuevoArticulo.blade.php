@@ -7,14 +7,23 @@ Pagina palas
 @endsection
 @section('contenido')
 <main>
+    <a href="{{ route('adminListado')}}">
+        <button>Volver</button>
+    </a>
     <div style="display: flex; flex-direction:column;">
         <form action="" method="post">
         @CSRF
         <input type="text" name="nombre" id="" value="" placeholder="nombre">
+        <input type="text" name="descripcion" id="" value="" placeholder="descripcion">
         <input type="text" name="precio" id="" value="" placeholder="precio">
         <input type="text" name="stock" id="" value="" placeholder="stock">
         <input type="text" name="marca" id="" value="" placeholder="marca">
-        <input type="text" name="categoria_nombre" id="" value="" placeholder="categoria_nombre">
+        <!-- <input type="text" name="categoria_nombre" id="" value="" placeholder="categoria_nombre"> -->
+        <select name="categoria_nombre" id="">
+            <option value="" selected disabled>Selecciona categoria</option>
+            <option value="palas">Palas</option>
+            <option value="mochilas">Mochilas</option>
+        </select>
         <input type="text" name="imagen" id="" value="" placeholder="imagen">
         <input type="submit" value="enviar" id="enviar">
         </form>
@@ -28,10 +37,11 @@ Pagina palas
         
         const formData = {
             nombre: document.querySelector("input[name='nombre']").value,
+            descripcion: document.querySelector("input[name='descripcion']").value,
             precio: document.querySelector("input[name='precio']").value,
             stock: document.querySelector("input[name='stock']").value,
             marca: document.querySelector("input[name='marca']").value,
-            categoria_nombre: document.querySelector("input[name='categoria_nombre']").value,
+            categoria_nombre: document.querySelector("select[name='categoria_nombre']").value,
             img: document.querySelector("input[name='imagen']").value,
             _token:'{{ csrf_token() }}'
         };

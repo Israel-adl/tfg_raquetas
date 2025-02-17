@@ -95,6 +95,7 @@ class globalController extends Controller
     $articulo->marca = $request->marca;
     $articulo->categoria_nombre = $request->categoria_nombre;
     $articulo->img = $request->img;
+    
     // $articulo->updated_at = Carbon::now();
     $articulo->save();
 
@@ -106,7 +107,7 @@ class globalController extends Controller
         // return view('admin.nuevoArticulo');
         
     }
-    
+
     public function eliminarArticuloAdminPOST($id)
     {
         // Lógica para eliminar el artículo con el id recibido
@@ -121,5 +122,51 @@ class globalController extends Controller
             return redirect()->back()->with('error', 'Artículo no encontrado');
         }
     }
+    public function editarArticulosAdmin($id){
+        $articulo = Articulo::find($id);
+
+        return view('admin.editarArticulo', compact('articulo'));
+    }
+    public function posteditarArticulosAdmin(Request $request){
+        $articulo = Articulo::find($request->id);
+        $articulo->nombre = $request->nombre;
+        $articulo->precio = $request->precio;
+        $articulo->stock = $request->stock;
+        $articulo->descripcion = $request->descripcion;
+        $articulo->marca = $request->marca;
+        $articulo->img = $request->img;
+        $articulo->save();
+        // dd($articulo->nombre);
+        return redirect()->back()->with('message', 'Artículo editado correctamente');
+    }
+    public function verArticulo($id){
+        $articulo = Articulo::find($id);
+        // dd($articulo);
+        return view('articulo.detallesArticulo', compact('articulo'));
+    }
+
+
+
+
+
+
+
+
+
+    public function test()
+    {
+        // Lógica para eliminar el artículo con el id recibido
+        $articulo = Articulo::find(3);
+    
+        dd($articulo);
+    }
+    public function testParametro($id)
+    {
+        // Lógica para eliminar el artículo con el id recibido
+        $articulo = Articulo::find($id);
+        
+        dd($articulo);
+    }
     
 }
+

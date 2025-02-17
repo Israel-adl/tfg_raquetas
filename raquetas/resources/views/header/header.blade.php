@@ -15,6 +15,7 @@
                     <a href="{{ route('calzado') }}">Calzado</a>
                     <a href="{{ route('pelotas') }}">Pelotas</a>
                     @yield('admin')
+
                 </div>
             </div>
         </div>
@@ -42,6 +43,38 @@
         </div>
     </header>
 
+    <style>
+        .carrito_desplegable ul{
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            overflow-y: scroll;
+        }
+        .carrito_desplegable ul li{
+            list-style: none;
+            width: 100%;
+            height: 50px;
+            background-color: white;
+        }
+        .carrito_desplegable ul button{
+            width: 20px; 
+            height:20px; 
+            border-radius:10px; 
+            background:red;
+            padding:0px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .divCarro{
+            height: 50px;
+            position:relative;
+        }
+    </style>
     <div class="carrito_desplegable oculto">
+        <h5 style="margin-bottom:30px;">Carrito</h5>
+        <ul>
 
+        </ul>
+        <button>Comprar</button>
     </div>
