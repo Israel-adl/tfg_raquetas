@@ -5,9 +5,17 @@ Pagina palas
 @endsection
 @section('contenido')
 <main>
-    <!-- <h1>PAGINA ARTICULOS</h1> -->
+    <div class="contenidoportada">
+         <div class="bannerPrincipal">
+            <div>
+                <h1>{{$titulo}}</h1>
+            </div>
+            <div>
+                {{$descripcion}}
+            </div>
+        </div>
     <section class="productos">
-    
+
     @foreach($articulo as $item)
             <article>
                 <a href="{{ route('verArticulo', ['id' => $item->id]) }}">
@@ -16,13 +24,17 @@ Pagina palas
                 <div>
                     <h2>{{$item->nombre}}</h2>
                     <!-- {{$item->descripcion}} -->
+                    <!-- <p class="nombre">{{$item->precio}}€</p> -->
                     <p class="marca">{{$item->marca}}</p>
                     <p class="precio">{{$item->precio}}€</p>
+                    <!-- <p class="descripcion">{{$item->precio}}€</p>
+                    <p class="stock">{{$item->precio}}€</p> -->
                 </div>
-                <button onclick="anadir('{{$item->id}}','{{$item->precio}}','{{asset($item->img)}}')">Añadir</button>
+                <button class="agregar-carrito" onclick="anadir('{{$item->id}}','{{$item->precio}}','{{asset($item->img)}}')">Añadir</button>
             </article>
     @endforeach
 
     </section>
+    </div>
 </main>
 @endsection

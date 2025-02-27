@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/carrito.css') }}">
     <link rel="stylesheet" href="{{ asset('css/verArticulo.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/portada.css') }}">
 </head>
 <body>
 @include('../header/header')
@@ -16,4 +17,8 @@
 @include('../footer/footer')
 </body>
 <script src="{{ asset('js/carrito.js') }}"></script>
+
+<script>
+      
+</script>
 </html>

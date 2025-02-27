@@ -21,22 +21,22 @@
         </div>
 
         <div class="encabezado-centro">
-            <a href="/"><h1>Bienvenido a PádelPro</h1></a>
+            <a href="/"><h1>PádelPro</h1></a>
         </div>
 
         <div class="encabezado-derecha">
             <div class="elementos-derecha">
-                <div class="barra-busqueda">
+                <!-- <div class="barra-busqueda">
                     <input type="text" id="busqueda" placeholder="Buscar...">
                     <button id="boton-busqueda">🔍</button>
-                </div>
+                </div> -->
                 <div class="carrito">
                     <button id="boton-carrito">🛒 Carrito</button>
                 </div>
                 <div class="carrito">
-                    <a href="{{route('login')}}">
+                    <!-- <a href="{{route('login')}}">
                         <button id="boton-carrito">Iniciar sesion</button>
-                    </a>
+                    </a> -->
                     
                 </div>
             </div>

@@ -6,7 +6,7 @@ use App\Http\Controllers\globalController;
 Route::get('/', function () {
     return view('inicio');
 });
-Route::get('/login', function () {
+Route::get('/admin', function () {
     return view('login');
 })->name("login");
 

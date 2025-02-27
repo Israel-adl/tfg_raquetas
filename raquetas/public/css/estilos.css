@@ -29,8 +29,8 @@ header {
 
 h1 {
     margin: 0;
-    color: #007acc; /* Azul más oscuro */
-    text-align: center; /* Centra el texto */
+    color: #007acc; 
+    text-align: center; 
     flex-grow: 1; /* Asegura que el h1 se expanda y se centre */
     display: flex;
     justify-content: center;
@@ -162,12 +162,13 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh; /* Centra el contenido en la pantalla */
     /* max-width: 1200px; */
     width: 100%;
     background-color: #f5faffee;
     margin: auto;
     min-height: 100vh;
+    flex-direction: column;
+    
 }
 
 #seccion-login {
@@ -222,6 +223,7 @@ footer {
 
 .productos{
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -242,6 +244,12 @@ article{
     justify-content: space-between;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: 0.3s ease all;
+}
+@media screen and (max-width: 768px) {
+    article{
+        width: 100%;
+        height: 150%;
+    }
 }
 article:hover {
     transform: translateY(-15px);
@@ -273,3 +281,5 @@ article .precio{
 article .marca{
     margin: 15px 0px 5px 0px;
 }
+
+/*pagina de inicio*/

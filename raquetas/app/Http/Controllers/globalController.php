@@ -13,49 +13,62 @@ class globalController extends Controller
     {
         // Ejecutar la consulta a la tabla 'productos' donde la columna 'categoria' sea 'pala'
         $articulo = DB::table('productos')->where('categoria_nombre', 'palas')->get();
-        // dd($palas);
-        // Retornar la vista con los datos
-        return view('listadoArticulos', compact('articulo'));
+    // Definir título y descripción
+    $titulo = 'Listado de Palas de Pádel';
+    $descripcion = 'Encuentra las mejores palas de pádel al mejor precio. Compara y elige la tuya.';
+
+    // Retornar la vista con los datos
+    return view('listadoArticulos', compact('articulo', 'titulo', 'descripcion'));
     }
     public function listarMochilas()
     {
         // Ejecutar la consulta a la tabla 'productos' donde la columna 'categoria' sea 'pala'
         $articulo = DB::table('productos')->where('categoria_nombre', 'mochila')->get();
-        // dd($palas);
+        $titulo = 'Listado de Mochilas de Pádel';
+        $descripcion = 'Encuentra las mejores Mochilas de pádel al mejor precio. Compara y elige la tuya.';
+    
         // Retornar la vista con los datos
-        return view('listadoArticulos', compact('articulo'));
+        return view('listadoArticulos', compact('articulo', 'titulo', 'descripcion'));
     }
     public function listarPaleteros()
     {
         // Ejecutar la consulta a la tabla 'productos' donde la columna 'categoria' sea 'pala'
         $articulo = DB::table('productos')->where('categoria_nombre', 'paletero')->get();
-        // dd($palas);
-        // Retornar la vista con los datos
-        return view('listadoArticulos', compact('articulo'));
+    $titulo = 'Listado de Palas de Pádel';
+    $descripcion = 'Encuentra las mejores palas de pádel al mejor precio. Compara y elige la tuya.';
+
+    // Retornar la vista con los datos
+    return view('listadoArticulos', compact('articulo', 'titulo', 'descripcion'));
     }
     public function listarRopa()
     {
         // Ejecutar la consulta a la tabla 'productos' donde la columna 'categoria' sea 'pala'
         $articulo = DB::table('productos')->where('categoria_nombre', 'ropa')->get();
-        // dd($palas);
-        // Retornar la vista con los datos
-        return view('listadoArticulos', compact('articulo'));
+    $titulo = 'Listado de Palas de Pádel';
+    $descripcion = 'Encuentra las mejores palas de pádel al mejor precio. Compara y elige la tuya.';
+
+    // Retornar la vista con los datos
+    return view('listadoArticulos', compact('articulo', 'titulo', 'descripcion'));
     }
     public function listarCalzado()
     {
         // Ejecutar la consulta a la tabla 'productos' donde la columna 'categoria' sea 'pala'
         $articulo = DB::table('productos')->where('categoria_nombre', 'calzado')->get();
-        // dd($palas);
-        // Retornar la vista con los datos
-        return view('listadoArticulos', compact('articulo'));
+    $titulo = 'Listado de Palas de Pádel';
+    $descripcion = 'Encuentra las mejores palas de pádel al mejor precio. Compara y elige la tuya.';
+
+    // Retornar la vista con los datos
+    return view('listadoArticulos', compact('articulo', 'titulo', 'descripcion'));
     }
     public function listarPelotas()
     {
         // Ejecutar la consulta a la tabla 'productos' donde la columna 'categoria' sea 'pala'
         $articulo = DB::table('productos')->where('categoria_nombre', 'pelotas')->get();
-        // dd($palas);
-        // Retornar la vista con los datos
-        return view('listadoArticulos', compact('articulo'));
+    $titulo = 'Listado de Palas de Pádel';
+    $descripcion = 'Encuentra las mejores palas de pádel al mejor precio. Compara y elige la tuya.';
+
+    // Retornar la vista con los datos
+    return view('listadoArticulos', compact('articulo', 'titulo', 'descripcion'));
     }
     public function listarArticulosAdmin()
     {
