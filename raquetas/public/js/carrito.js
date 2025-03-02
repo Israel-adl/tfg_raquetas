@@ -1,105 +1,112 @@
 var boton_carrito = document.querySelector("#boton-carrito");
 var carrito_desplegable = document.querySelector(".carrito_desplegable");
 var listaCarrito = document.querySelector(".carrito_desplegable ul");
+
+var carrito = {
+    compras:[]
+};
+if (localStorage.getItem("compras")) {
+    console.log(localStorage.getItem("compras"))
+    carrito.compras = obtenerDeLocalStorage("compras")
+}
+actualizarCarroAhora();
 console.log(boton_carrito)
 boton_carrito.addEventListener("click",()=>{
     carrito_desplegable.classList.toggle('oculto')
 })
+function restarCarrito(posArray,id_compra) {
 
+    if (carrito.compras[posArray].cantidad > 1) {
+        carrito.compras[posArray].cantidad--
+    }
+    actualizarCarroAhora();
+}
+function anadirCarrito(posArray,id_compra) {
+
+    carrito.compras[posArray].cantidad++
+    actualizarCarroAhora();
+}
 function anadir(id_compra,precio,imagen) {
+
+    var positionArray = carrito.compras.push({
+       id: id_compra,
+       precio: precio,
+       imagen:imagen,
+       cantidad: 1
+    });
     console.log("se ha añadido al carrito el articulo con id == ",id_compra);
-    var htmlContent = `
-                <li>
-                <div class="divCarro">
-                    <img width="30px" height="30px" src="${imagen}" />
-                    <span>Nombre articulo: ${id_compra}</span>
-                    <span>Precio:${precio}</span>
-                    <button onclick="eliminarCarro(this)" style="">X</button>
-                </div>
-            </li>
-    `;
-
-    listaCarrito.innerHTML += htmlContent;
-    // var itemCarrito = document.createElement("div");
-    // var precioItem = document.createElement("span");
-    // precioItem.innerHTML = precio+"€";
-    // itemCarrito.appendChild(precioItem);
-    // itemCarrito.innerHTML += "articulo id "+id_compra;
-
-    // carrito_desplegable.appendChild(itemCarrito);
+    actualizarCarroAhora();
+}
+function guardarEnLocalStorage(clave, array) {
+    if (Array.isArray(array)) {
+        localStorage.setItem(clave, JSON.stringify(array));
+    } else {
+        console.error("El valor proporcionado no es un array.");
+    }
+}
+function obtenerDeLocalStorage(clave) {
+    let datos = localStorage.getItem(clave);
+    return datos ? JSON.parse(datos) : [];
 }
 
+function actualizarCarroAhora(){
+    console.log(carrito);
+    let compras = carrito.compras
+    compras.forEach((element,index) => {
+        // console.log(element.id)
+        if (document.querySelector(".buttonAnadir_"+element.id)) {
+            
+      
+        let elemento = document.querySelector(".buttonAnadir_"+element.id);
+        if (element.cantidad != -1) {
+            elemento.disabled = true;
+            elemento.innerHTML = "Añadido"
+            elemento.style.backgroundColor = "red";
+        }else{
+            elemento.disabled = false;
+            elemento.innerHTML = "Añadir"
+            elemento.style.backgroundColor = "rgb(255, 199, 94)";
+            compras.splice(index,1)
+        }
+    }
+    });
 
-function eliminarCarro(param) {
+    console.log(compras)
+    carrito.compras = compras
+    guardarEnLocalStorage("compras",compras);
 
-    console.log(param.parentNode.parentNode.remove())
+    var contenido = "";
+    carrito.compras.forEach((element,index) => {
+        console.log(index)
+        contenido += `
+        <li>
+        <div class="divCarro">
+            <img width="30px" height="30px" src="${element.imagen}" />
+            <span>Nombre articulo: ${element.id}</span>
+            <span>Precio:${element.precio}</span>
+            <span class='artCart_${element.id}'>Cantidad:${element.cantidad}</span>
+            <button class="eliminarDelCarro" onclick="eliminarCarro(this,${index},${element.id})" style="">X</button>
+            <button onclick="anadirCarrito(${index},${element.id})">+</button>
+            <button onclick="restarCarrito(${index},${element.id})">-</button>
+        </div>
+    </li>
+`;
+    });
+    listaCarrito.innerHTML = contenido;
+
+
+    let total = carrito.compras.reduce((acumulador, item) => {
+        return acumulador + (parseFloat(item.precio) * item.cantidad);
+    }, 0);
     
+    console.log("Total a pagar:", total.toFixed(2));
+    var precioTotal = document.querySelector(".precioTotal")
+    precioTotal.innerHTML = `${total.toFixed(2)}€`
+
 }
-
-
-
-
-// Inicializar Cart.js
-var cart = new CartJS.init();
-
-// Agregar productos al carrito
-document.querySelectorAll(".agregar-carrito").forEach((boton) => {
-    boton.addEventListener("click", function () {
-        let producto = {
-            id: this.getAttribute("data-id"),
-            name: this.getAttribute("data-name"),
-            price: parseFloat(this.getAttribute("data-price")),
-            quantity: 1,
-        };
-
-        cart.add(producto);
-        actualizarCarrito();
-    });
-});
-
-// Función para actualizar el carrito en pantalla
-function actualizarCarrito() {
-    let carritoContainer = document.getElementById("carrito");
-    carritoContainer.innerHTML = "";
-
-    cart.items.forEach((item, index) => {
-        let itemHTML = `
-            <div>
-                <p>${item.name} - €${item.price} x ${item.quantity}</p>
-                <button class="incrementar" data-index="${index}">+</button>
-                <button class="decrementar" data-index="${index}">-</button>
-                <button class="eliminar" data-index="${index}">Eliminar</button>
-            </div>
-        `;
-        carritoContainer.innerHTML += itemHTML;
-    });
-
-    // Eventos para modificar cantidades y eliminar productos
-    document.querySelectorAll(".incrementar").forEach((boton) => {
-        boton.addEventListener("click", function () {
-            let index = this.getAttribute("data-index");
-            cart.items[index].quantity++;
-            actualizarCarrito();
-        });
-    });
-
-    document.querySelectorAll(".decrementar").forEach((boton) => {
-        boton.addEventListener("click", function () {
-            let index = this.getAttribute("data-index");
-            if (cart.items[index].quantity > 1) {
-                cart.items[index].quantity--;
-            } else {
-                cart.items.splice(index, 1);
-            }
-            actualizarCarrito();
-        });
-    });
-
-    document.querySelectorAll(".eliminar").forEach((boton) => {
-        boton.addEventListener("click", function () {
-            let index = this.getAttribute("data-index");
-            cart.items.splice(index, 1);
-            actualizarCarrito();
-        });
-    });
+function eliminarCarro(elemento,posArray,id_compra) {
+    console.log()
+    carrito.compras[posArray].cantidad = -1;
+    console.log(elemento.parentNode.parentNode.remove())
+    actualizarCarroAhora();
 }

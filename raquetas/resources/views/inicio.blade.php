@@ -50,7 +50,7 @@ Pagina palas
  <a href="{{ route('ropa') }}">
             <div class="item">
                 <div class="imagenitem">
-                    <img src="https://www.macron.com/cdn-cgi/image/quality=85/media/contentmanager/content/992X1180_Padel.jpg" alt="">
+                    <img src="https://mcprod.head.com/media/wysiwyg/SPW-SU23-Merchandise_Performance.jpg?auto=webp&format=pjpg&quality=85" alt="">
                 </div>
                 <div class="tituloitem">
                     <h5>Ropa</h5>
@@ -60,7 +60,7 @@ Pagina palas
  <a href="{{ route('calzado') }}">
             <div class="item">
                 <div class="imagenitem">
-                    <img src="https://clinikpodologia.com/app/uploads/2017/01/zapatillas-padel-asics.jpeg" alt="">
+                    <img src="https://uploads-ssl.webflow.com/65f4578243bae7ca90d451f3/65f6a4d43750bb4054e100f1_2024PD_WILSON_BELA_Altas-48.jpg.cq5dam.web.1200.1200.jpeg" alt="">
                 </div>
                 <div class="tituloitem">
                     <h5>Calzado</h5>
@@ -70,7 +70,7 @@ Pagina palas
              <a href="{{ route('pelotas') }}">
             <div class="item">
                 <div class="imagenitem">
-                    <img src="https://www.padeladdict.com/wp-content/uploads/2020/04/por-que-son-las-pelotas-padel-amarillas-1.jpg" alt="">
+                    <img src="https://img.freepik.com/fotos-premium/pila-bolas-tenis-fondo-blanco-linea-negra-parte-inferior_1077802-137410.jpg?w=1060" alt="">
                 </div>
                 <div class="tituloitem">
                     <h5>Pelotas</h5>
@@ -86,7 +86,7 @@ Pagina palas
                     <img src="https://img.pccomponentes.com/pcblog/1738537200000/ofertas-especiales.png" alt="">
                 </div>
                 <div class="detalleitem">
-                    <p>Envio</p>
+                    <p>Ofertas Especiales</p>
                 </div>
             </div>
             <div class="infoitem">
@@ -94,7 +94,7 @@ Pagina palas
                     <img src="https://img.pccomponentes.com/pcblog/1735858800000/benef-envio-gratis-v2.png" alt="">
                 </div>
                 <div class="detalleitem">
-                    <p>Envio</p>
+                    <p>Envios Gratuitos superiores a 50 euros</p>
                 </div>
             </div>
             <div class="infoitem">
@@ -102,7 +102,7 @@ Pagina palas
                     <img src="https://img.pccomponentes.com/pcblog/1735858800000/benef-gar-solucion-v2.png" alt="">
                 </div>
                 <div class="detalleitem">
-                    <p>Envio</p>
+                    <p>Garantia de solución y sustitución en 24 horas</p>
                 </div>
             </div>
             <div class="infoitem">
@@ -110,7 +110,7 @@ Pagina palas
                     <img src="https://img.pccomponentes.com/pcblog/1736722800000/lanzamientos-y-novedades.png" alt="">
                 </div>
                 <div class="detalleitem">
-                    <p>Envio</p>
+                    <p>Lanzamiento y novedades</p>
                 </div>
             </div>
             <div class="infoitem">
@@ -118,7 +118,7 @@ Pagina palas
                     <img src="https://img.pccomponentes.com/pcblog/1735858800000/frame-5-v2.png" alt="">
                 </div>
                 <div class="detalleitem">
-                    <p>Envio</p>
+                    <p>Servicio</p>
                 </div>
             </div>
             <div class="infoitem">
@@ -126,7 +126,7 @@ Pagina palas
                     <img src="https://img.pccomponentes.com/pcblog/1735858800000/benef-dev-24h-v2.png" alt="">
                 </div>
                 <div class="detalleitem">
-                    <p>Envio</p>
+                    <p>Recibe tu pedido en 24 horas</p>
                 </div>
             </div>
         </div>

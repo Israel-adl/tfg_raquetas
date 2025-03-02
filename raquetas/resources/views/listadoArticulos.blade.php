@@ -30,7 +30,7 @@ Pagina palas
                     <!-- <p class="descripcion">{{$item->precio}}€</p>
                     <p class="stock">{{$item->precio}}€</p> -->
                 </div>
-                <button class="agregar-carrito" onclick="anadir('{{$item->id}}','{{$item->precio}}','{{asset($item->img)}}')">Añadir</button>
+                <button class="agregar-carrito buttonAnadir_{{$item->id}}" onclick="anadir('{{$item->id}}','{{$item->precio}}','{{asset($item->img)}}')">Añadir</button>
             </article>
     @endforeach
 

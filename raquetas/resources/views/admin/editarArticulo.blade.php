@@ -28,10 +28,31 @@ Pagina palas
             @endif
             >Palas</option>
             <option value="mochilas" 
-            @if ($articulo->categoria_nombre == "mochila") 
+            @if ($articulo->categoria_nombre == "mochilas") 
                 selected
             @endif
             >Mochilas</option>
+            <option value="paleteros" 
+            @if ($articulo->categoria_nombre == "paleteros") 
+                selected
+            @endif
+            >Paleteros</option>
+            <option value="ropa" 
+            @if ($articulo->categoria_nombre == "ropa") 
+                selected
+            @endif
+            >Ropa</option>
+            <option value="calzado" 
+            @if ($articulo->categoria_nombre == "calzado") 
+                selected
+            @endif
+            >Calzado</option>
+            <option value="pelotas" 
+            @if ($articulo->categoria_nombre == "pelotas") 
+                selected
+            @endif
+            >Pelotas</option>
+
         </select>
         <input type="text" name="imagen" id="" value="{{$articulo->img}}" placeholder="imagen">
         <input type="submit" value="Editar" id="enviar">

@@ -53,10 +53,10 @@
         .carrito_desplegable ul li{
             list-style: none;
             width: 100%;
-            height: 50px;
+            /* height: 50px; */
             background-color: white;
         }
-        .carrito_desplegable ul button{
+        .carrito_desplegable ul .eliminarDelCarro{
             width: 20px; 
             height:20px; 
             border-radius:10px; 
@@ -67,7 +67,7 @@
             right: 0;
         }
         .divCarro{
-            height: 50px;
+            /* height: 50px; */
             position:relative;
         }
     </style>
@@ -76,5 +76,6 @@
         <ul>
 
         </ul>
+        <span class="precioTotal">0€</span>
         <button>Comprar</button>
     </div>

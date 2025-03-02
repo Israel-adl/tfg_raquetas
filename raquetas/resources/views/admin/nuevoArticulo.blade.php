@@ -23,6 +23,11 @@ Pagina palas
             <option value="" selected disabled>Selecciona categoria</option>
             <option value="palas">Palas</option>
             <option value="mochilas">Mochilas</option>
+            <option value="paleteros">Paleteros</option>
+            <option value="ropa">Ropa</option>
+            <option value="calzado">Calzado</option>
+            <option value="pelotas">Pelotas</option>
+
         </select>
         <input type="text" name="imagen" id="" value="" placeholder="imagen">
         <input type="submit" value="enviar" id="enviar">
