@@ -30,6 +30,12 @@
                     <input type="text" id="busqueda" placeholder="Buscar...">
                     <button id="boton-busqueda">🔍</button>
                 </div> -->
+                @auth
+                <form action="/logout" method="POST">
+                    @csrf
+                    <button type="submit">Cerrar sesión</button>
+                </form>
+                @endauth
                 <div class="carrito">
                     <button id="boton-carrito">🛒 Carrito</button>
                 </div>
@@ -42,40 +48,13 @@
             </div>
         </div>
     </header>
-
-    <style>
-        .carrito_desplegable ul{
-            display: flex;
-            flex-direction: column;
-            height: 400px;
-            overflow-y: scroll;
-        }
-        .carrito_desplegable ul li{
-            list-style: none;
-            width: 100%;
-            /* height: 50px; */
-            background-color: white;
-        }
-        .carrito_desplegable ul .eliminarDelCarro{
-            width: 20px; 
-            height:20px; 
-            border-radius:10px; 
-            background:red;
-            padding:0px;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-        .divCarro{
-            /* height: 50px; */
-            position:relative;
-        }
-    </style>
     <div class="carrito_desplegable oculto">
-        <h5 style="margin-bottom:30px;">Carrito</h5>
+        <h5 style="margin-bottom:15px;">Carrito</h5>
         <ul>
 
         </ul>
         <span class="precioTotal">0€</span>
-        <button>Comprar</button>
+        <a href="{{route('resumen-compra')}}">
+            <button>Comprar</button>
+        </a>
     </div>

@@ -27,13 +27,13 @@ Pagina palas
                 selected
             @endif
             >Palas</option>
-            <option value="mochilas" 
-            @if ($articulo->categoria_nombre == "mochilas") 
+            <option value="mochila" 
+            @if ($articulo->categoria_nombre == "mochila") 
                 selected
             @endif
             >Mochilas</option>
-            <option value="paleteros" 
-            @if ($articulo->categoria_nombre == "paleteros") 
+            <option value="paletero" 
+            @if ($articulo->categoria_nombre == "paletero") 
                 selected
             @endif
             >Paleteros</option>

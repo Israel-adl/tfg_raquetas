@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Articulo;
+use App\Models\Pedido;
+use App\Models\DetallePedido;
 use Illuminate\Support\Facades\DB; // Importar la clase DB
 use Carbon\Carbon;
 
@@ -159,10 +161,97 @@ class globalController extends Controller
     }
 
 
+    public function localizador($id){
+        $pedido = DB::table('detalle_pedidos')
+        ->join('productos', 'detalle_pedidos.producto_id', '=', 'productos.id')
+        ->where('detalle_pedidos.pedido_id', $id)
+        ->select(
+            'detalle_pedidos.id as detalle_id',
+            'detalle_pedidos.pedido_id',
+            'detalle_pedidos.producto_id',
+            'productos.nombre as producto_nombre',
+            'productos.precio as precio_unidad',
+            'productos.img as imagen',
+            'detalle_pedidos.cantidad'
+        )
+        ->get();
+     
+
+    return view('localizador', compact('pedido'));
+}
 
 
+public function resumenCompra(){
+    return view('resumenCompra'/*, compact('articulo')*/);
+}
+public function crearPedido(Request $request)
+{
+    // Obtener solo la clave 'carrito' del cuerpo de la solicitud
+    $pedidoData = $request->json('carrito'); // Los productos del carrito
+    // Obtener los otros datos del formulario
+    $nombre = $request->input('nombre');
+    $apellidos = $request->input('apellidos');
+    $telefono = $request->input('telefono');
+    $email = $request->input('email');
+    $direccion = $request->input('direccion');
+    $codigo_postal = $request->input('codigo_postal');
+    $ciudad = $request->input('ciudad');
+    $provincia = $request->input('provincia');
+    $metodo_pago = $request->input('metodo_pago');
+    $numTarjeta = $request->input('numTarjeta');
+    $comentarios = $request->input('comentarios');
 
+    // Imprimir los datos para verificar
+    // dd($pedidoData, $nombre, $apellidos, $telefono, $email, $direccion, $codigo_postal, $ciudad, $provincia, $metodo_pago, $comentarios);
 
+    try {
+        DB::beginTransaction(); // Iniciar transacción
+
+        // Calcular el total sumando los precios de todos los productos
+        $total = array_reduce($pedidoData, function ($sum, $producto) {
+            return $sum + ($producto['precio'] * $producto['cantidad']);
+        }, 0);
+
+        // Crear el pedido en la base de datos
+        $pedido = Pedido::create([
+            'fecha_pedido' => Carbon::now()->toDateTimeString(), // Fecha actual
+            'total' => $total,
+            'nombre' => $nombre,
+            'apellidos' => $apellidos,
+            'telefono' => $telefono,
+            'email' => $email,
+            'direccion' => $direccion,
+            'codigo_postal' => $codigo_postal,
+            'ciudad' => $ciudad,
+            'provincia' => $provincia,
+            'pago' => $metodo_pago,
+            'numTarjeta' => $numTarjeta,
+            'comentario' => $comentarios,
+        ]);
+
+        // Insertar los detalles del pedido en la tabla detalles_pedido
+        foreach ($pedidoData as $producto) {
+            DetallePedido::create([
+                'pedido_id' => $pedido->id,
+                'producto_id' => $producto['id'],
+                'cantidad' => $producto['cantidad'],
+                'precio_unitario' => $producto['precio']
+            ]);
+        }
+
+        DB::commit(); // Confirmar la transacción
+
+        return response()->json([
+            'mensaje' => 'Pedido y detalles creados correctamente',
+            'localizador' => $pedido->id,
+            'pedido_id' => $pedido->id,
+            'total' => $total
+        ], 201);
+    } catch (\Exception $e) {
+        DB::rollBack(); // Revertir en caso de error
+        return response()->json(['error' => 'Error al crear el pedido', 'detalle' => $e->getMessage()], 500);
+    }
+}
 
 
 

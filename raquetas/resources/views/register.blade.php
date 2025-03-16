@@ -6,8 +6,12 @@
 <main>
         <section id="seccion-login">
             <h2>Inicia Sesión</h2>
-            <form action="/login" method="POST">
+            <form action="/register" method="POST">
     @csrf
+    <div>
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+    </div>
     <div>
         <label for="email">Correo electrónico</label>
         <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
@@ -16,20 +20,13 @@
         <label for="password">Contraseña</label>
         <input type="password" id="password" name="password" placeholder="Contraseña" required>
     </div>
-
-    <!-- Mostrar errores de validación -->
-    @if ($errors->any())
-        <div style="color: red;">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    <button type="submit">Iniciar sesión</button>
+    <div>
+        <label for="password_confirmation">Confirmar contraseña</label>
+        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirmar contraseña" required>
+    </div>
+    <button type="submit">Registrar</button>
 </form>
+
         </section>
     </main>
 @endsection

@@ -18,7 +18,5 @@
 </body>
 <script src="{{ asset('js/carrito.js') }}"></script>
 
-<script>
-      
-</script>
+@yield('scripsExtra')
 </html>

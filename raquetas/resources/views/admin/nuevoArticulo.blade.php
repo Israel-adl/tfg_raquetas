@@ -22,8 +22,8 @@ Pagina palas
         <select name="categoria_nombre" id="">
             <option value="" selected disabled>Selecciona categoria</option>
             <option value="palas">Palas</option>
-            <option value="mochilas">Mochilas</option>
-            <option value="paleteros">Paleteros</option>
+            <option value="mochila">Mochilas</option>
+            <option value="paletero">Paleteros</option>
             <option value="ropa">Ropa</option>
             <option value="calzado">Calzado</option>
             <option value="pelotas">Pelotas</option>
