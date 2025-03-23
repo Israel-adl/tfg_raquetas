@@ -30,15 +30,30 @@
                     <input type="text" id="busqueda" placeholder="Buscar...">
                     <button id="boton-busqueda">🔍</button>
                 </div> -->
+                @guest
+                <a href="{{route('login')}}">
+                        <button id="">Iniciar sesion</button>
+                </a>
+                @endguest
                 @auth
                 <form action="/logout" method="POST">
                     @csrf
                     <button type="submit">Cerrar sesión</button>
                 </form>
                 @endauth
+                @if(auth()->check() && auth()->user()->role === 'admin')
+                <a href="{{route('adminListado')}}">
+                        <button id="">Admin Panel</button>
+                </a>
+                @endif
                 <div class="carrito">
                     <button id="boton-carrito">🛒 Carrito</button>
                 </div>
+                @auth
+                <a href="{{route('perfil')}}">
+                        <button id="">Perfil</button>
+                </a>
+                @endauth
                 <div class="carrito">
                     <!-- <a href="{{route('login')}}">
                         <button id="boton-carrito">Iniciar sesion</button>

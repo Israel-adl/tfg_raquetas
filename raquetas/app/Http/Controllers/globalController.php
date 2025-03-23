@@ -8,6 +8,7 @@ use App\Models\Pedido;
 use App\Models\DetallePedido;
 use Illuminate\Support\Facades\DB; // Importar la clase DB
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class globalController extends Controller
 {
@@ -200,7 +201,10 @@ public function crearPedido(Request $request)
     $metodo_pago = $request->input('metodo_pago');
     $numTarjeta = $request->input('numTarjeta');
     $comentarios = $request->input('comentarios');
-
+    $id_user = null;
+    if (Auth::check()) {
+        $id_user = Auth::user()->id;
+    }
     // Imprimir los datos para verificar
     // dd($pedidoData, $nombre, $apellidos, $telefono, $email, $direccion, $codigo_postal, $ciudad, $provincia, $metodo_pago, $comentarios);
 
@@ -227,6 +231,7 @@ public function crearPedido(Request $request)
             'pago' => $metodo_pago,
             'numTarjeta' => $numTarjeta,
             'comentario' => $comentarios,
+            'user_id' => $id_user,
         ]);
 
         // Insertar los detalles del pedido en la tabla detalles_pedido
@@ -268,6 +273,12 @@ public function crearPedido(Request $request)
         $articulo = Articulo::find($id);
         
         dd($articulo);
+    }
+
+    public function verPerfil(){
+        $pedidos = DB::table('pedidos')->where('user_id', Auth::user()->id)->get();
+
+        return view('perfil.perfil', compact('pedidos'));
     }
     
 }

@@ -1,11 +1,4 @@
-@extends('welcome')
-@section('admin')
-<a href="{{ route('adminListado') }}">Admin Listado</a>
-@endsection
-@section('titulo_pagina')
-PAGINA ADMINISTRACION
-@endsection
-@section('contenido')
+
 <main>
     <style>
         table{
@@ -65,7 +58,9 @@ PAGINA ADMINISTRACION
     background-color: #dc3545;
     color: white;
 }
-
+td{
+    text-align: center;
+}
 .boton-eliminar:hover {
     background-color: #c82333;
 }
@@ -109,5 +104,3 @@ a {
 </div>
 </main>
 
-
-@endsection

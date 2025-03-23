@@ -27,7 +27,8 @@ class Pedido extends Model
         'provincia',
         'pago',
         'numTarjeta',
-        'comentario'
+        'comentario',
+        'user_id'
     ];
 
     // Si quieres que el campo 'fecha_pedido' se guarde en un formato específico, puedes agregarlo

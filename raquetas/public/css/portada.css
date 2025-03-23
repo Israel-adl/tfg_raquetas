@@ -126,3 +126,21 @@ a{
         font-size: 22px;
     }
 }
+
+.partidos{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.tarjetaPartidos{
+    width: 160px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding: 8px;
+    
+}

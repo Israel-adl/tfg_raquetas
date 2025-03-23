@@ -31,7 +31,7 @@ class AuthController extends Controller
     // Intentar autenticar al usuario
     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
         // Si la autenticación es exitosa
-        return redirect()->route('adminListado'); // Redirige al usuario a la página de listado de admin
+        return redirect()->route('inicio'); // Redirige al usuario a la página de listado de admin
     }
 
     // Si las credenciales no son correctas

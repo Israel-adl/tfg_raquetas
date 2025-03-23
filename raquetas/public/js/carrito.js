@@ -198,7 +198,7 @@ function hacerPedido(event,crsf) {
     .then(data => {
         alert("Pedido creado exitosamente");
         alert(`Tu localizador es: ${data.localizador}`);
-        location.href = `/localizador/${data.localizador}`;
+        location.href = `/perfil`;
         localStorage.removeItem('compras');
     })
     .catch(error => {

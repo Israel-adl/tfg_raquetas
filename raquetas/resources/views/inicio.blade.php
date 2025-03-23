@@ -16,6 +16,10 @@ Pagina palas
                 <img src="https://www.padeladdict.com/wp-content/uploads/2023/03/quienes-son-los-mejores-rematadores-del-padel-profesional-portada-1068x580-1.jpg" alt="">
             </div>
         </div>
+        <h2 style="margin-bottom: 30px;">Proximos Partidos</h2>
+        <div class="partidos">
+            
+        </div>
         <div class="items">
         <a href="{{ route('palas') }}">
             <div class="item">
@@ -134,6 +138,6 @@ Pagina palas
 
     </div>
     <!-- <h1>PAGINA INICIAL</h1> -->
-
+    <script src="{{ asset('js/apipadel.js') }}"></script>
 </main>
 @endsection
