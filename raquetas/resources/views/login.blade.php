@@ -6,7 +6,7 @@
 <main>
         <section id="seccion-login">
             <h2>Inicia Sesión</h2>
-            <form action="/login" method="POST">
+            <form action="/login" method="POST" style="margin-bottom:20px;">
     @csrf
     <div>
         <label for="email">Correo electrónico</label>
@@ -30,6 +30,9 @@
 
     <button type="submit">Iniciar sesión</button>
 </form>
+<a style="margin-top:20px;background-color: white; padding:10px 25px; font-size:15px; border-radius:10px;" href="{{ route('auth.google') }}" class="btn btn-danger">
+   <img src="https://cdn-icons-png.freepik.com/256/2702/2702602.png?semt=ais_hybrid" width="15" alt=""> Iniciar sesión con Google
+</a>
         </section>
     </main>
 @endsection

@@ -182,7 +182,7 @@ class globalController extends Controller
         $comentario->fecha = Carbon::now(); // Fecha actual (asegúrate de tener ese campo en la DB)
     
         $comentario->save();
-  
+
         return redirect()->back()->with('mensaje', 'Comentario enviado correctamente.');
     }
     public function eliminar($id)
