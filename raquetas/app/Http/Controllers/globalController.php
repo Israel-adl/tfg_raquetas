@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Articulo;
 use App\Models\Pedido;
+use App\Models\Comentario;
 use App\Models\DetallePedido;
 use Illuminate\Support\Facades\DB; // Importar la clase DB
 use Carbon\Carbon;
@@ -157,11 +158,46 @@ class globalController extends Controller
     }
     public function verArticulo($id){
         $articulo = Articulo::find($id);
-        // dd($articulo);
-        return view('articulo.detallesArticulo', compact('articulo'));
+        $comentarios = DB::table('comentarios')
+        ->join('users', 'comentarios.id_usuario', '=', 'users.id')
+        ->where('comentarios.id_producto', $id)
+        ->select('comentarios.*', 'users.name as usuario_nombre') // Puedes añadir más campos si quieres
+        ->get();
+    
+        $mediaPuntuacion = Comentario::where('id_producto', $id)->avg('puntuacion');
+        return view('articulo.detallesArticulo', compact('articulo', 'comentarios','mediaPuntuacion'));
     }
+    public function storeComentario(Request $request)
+    {
+    
+        // Validar datos
 
-
+    
+        // Crear el comentario
+        $comentario = new Comentario();
+        $comentario->contenido = $request->comentario;
+        $comentario->puntuacion = $request->puntuacion;
+        $comentario->id_producto = $request->id_producto;
+        $comentario->id_usuario = Auth::id(); // o un ID fijo si no tienes login
+        $comentario->fecha = Carbon::now(); // Fecha actual (asegúrate de tener ese campo en la DB)
+    
+        $comentario->save();
+  
+        return redirect()->back()->with('mensaje', 'Comentario enviado correctamente.');
+    }
+    public function eliminar($id)
+    {
+        $comentario = Comentario::findOrFail($id);
+    
+        // Verificar que el usuario autenticado sea admin
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'No tienes permiso para realizar esta acción.');
+        }
+    
+        $comentario->delete();
+    
+        return redirect()->back()->with('mensaje', 'Comentario eliminado correctamente.');
+    }
     public function localizador($id){
         $pedido = DB::table('detalle_pedidos')
         ->join('productos', 'detalle_pedidos.producto_id', '=', 'productos.id')

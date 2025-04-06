@@ -49,6 +49,9 @@ Route::post('/crear-pedido', [globalController::class, 'crearPedido'])->name('cr
     RUTA PARA VER DETALLES DE ARTICULO
 */
 Route::get('/detalles/{id}', [globalController::class, 'verArticulo'])->name('verArticulo');
+Route::post('/comentarios/guardar', [globalController::class, 'storeComentario'])->name('comentarios.guardar');
+Route::delete('/comentarios/eliminar/{id}', [globalController::class, 'eliminar'])->name('comentarios.eliminar');
+
 /*
 Route::get('/articulo/{id}', [globalController::class, 'verArticulo'])->name('verArticulo');
 */
