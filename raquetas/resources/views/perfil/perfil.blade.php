@@ -69,6 +69,5 @@ align-items: center;
     </div>
     </div>
 
-   
 </main>
 @endsection

@@ -9,7 +9,7 @@ use App\Http\Controllers\Auth\GoogleController;
 Route::get('/', function () {
     return view('inicio');
 })->name('inicio');
-Route::get('/admin', function () {
+Route::get('/login', function () {
     return view('login');
 })->name("login");
 
@@ -41,7 +41,7 @@ Route::middleware(['auth', 'Role:admin'])->group(function () {
     Route::post('/admin/eliminar/{id}', [globalController::class, 'eliminarArticuloAdminPOST'])->name('eliminarArticuloAdminPOST');
 });
 
-Route::get('/resumen-compra', [globalController::class, 'resumenCompra'])->name('resumen-compra');
+Route::get('/resumen-compra', [globalController::class, 'resumenCompra'])->middleware('auth')->name('resumen-compra');
 Route::get('/localizador/{id}', [globalController::class, 'localizador'])->name('localizador');
 
 Route::post('/crear-pedido', [globalController::class, 'crearPedido'])->name('crearPedido');
@@ -60,8 +60,10 @@ Route::get('/articulo/{id}', [globalController::class, 'verArticulo'])->name('ve
 Route::get('/test', [globalController::class, 'test'])->name('test');
 Route::get('/testParametro/{id}', [globalController::class, 'testParametro'])->name('test');
 
-
-Route::post('/register', [AuthController::class, 'register']);
+Route::get('/register',  function () {
+    return view('register');
+})->name('registroview');
+Route::post('/register', [AuthController::class, 'register'])->name('registro');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 

@@ -29,7 +29,9 @@
     @endif
 
     <button type="submit">Iniciar sesión</button>
+    <a href="{{route('registro')}}" style="margin-bottom: 30px;">¿No estas registrado? ¡REGISTRATE!</a>
 </form>
+
 <a style="margin-top:20px;background-color: white; padding:10px 25px; font-size:15px; border-radius:10px;" href="{{ route('auth.google') }}" class="btn btn-danger">
    <img src="https://cdn-icons-png.freepik.com/256/2702/2702602.png?semt=ais_hybrid" width="15" alt=""> Iniciar sesión con Google
 </a>

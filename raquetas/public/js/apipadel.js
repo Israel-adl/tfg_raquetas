@@ -34,7 +34,16 @@ fetchWithToken('https://fantasypadeltour.com/api/matches','GET','cdBXvtrxhyr11dQ
         let fecha = document.createElement("div");
         let equipos = document.createElement("div");
         tarjeta.classList.add("tarjetaPartidos");
-        let teams = element.name.split("vs");
+        let teams = element.name.split("-");
+        if (teams[0] == undefined) {
+            teams = element.name.split("vs");
+        }
+       
+        if (teams[1] == undefined) {
+            teams[1] = "Sin emparejar"
+        }
+        teams[0] = teams[0].replaceAll("/", " | ")
+        teams[1] = teams[1].replaceAll("/", " | ")
         jugadores.innerHTML = `<b>${teams[0]}</b> <br><br> VS <br><br> <b>${teams[1]}</b>`;
         fecha.innerHTML = "Fecha: " + element.played_at;
         tarjeta.appendChild(jugadores);

@@ -54,6 +54,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
+            return redirect()->route('registroview');
             return response()->json(['error' => $validator->errors()], 400);
         }
 
@@ -67,7 +68,7 @@ class AuthController extends Controller
         // Iniciar sesión automáticamente
         Auth::login($user);
 
-
+        return redirect()->route('inicio');
 
     }
 

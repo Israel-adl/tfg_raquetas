@@ -21,9 +21,17 @@ Detalles {{$articulo->nombre}}
         width: 300px;
         border-right: 1px solid #ccc;
     }
+    /* Para móviles (pantallas de 768px o menos) */
+@media screen and (max-width: 768px) {
+    img {
+        width: 100%;
+        border-right: none; /* Opcional: puedes quitar el borde si no se ve bien en móvil */
+    }
+}
     .headerArt{
         display: flex;
         border-bottom: 1px solid #ccc;
+        flex-wrap: wrap;
     }
     header{
         z-index: 100000;
@@ -94,7 +102,7 @@ align-items: center;
             <div class="precioArt">
             Precio:<p>{{$articulo->precio}} €</p>
             </div>
-       <button style="margin-top: 30px;" onclick="anadir('{{$articulo->id}}','{{$articulo->precio}}','{{asset($articulo->img)}}','{{$articulo->nombre}}')">Añadir al carro</button>
+       <button style="margin-top: 30px;" onclick="anadir('{{$articulo->id}}','{{$articulo->precio}}','{{asset($articulo->img)}}','{{$articulo->nombre}}',this)">Añadir al carro</button>
 
 
         </div>

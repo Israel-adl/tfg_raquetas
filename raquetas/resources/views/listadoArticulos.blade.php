@@ -6,12 +6,14 @@ Pagina palas
 @section('contenido')
 <main>
     <div class="contenidoportada">
-         <div class="bannerPrincipal">
-            <div>
-                <h1>{{$titulo}}</h1>
+    <div class="bannerPrincipal">
+            <div style="display: flex; flex-direction:column; justify-content:center;align-items:start;gap:30px;padding:40px">
+                <h1 style="flex-grow: unset; text-align:start;">Tus mejores productos</h1>
+                <p>Descubre nuestra selección exclusiva de artículos diseñados para ofrecerte el máximo rendimiento dentro y fuera de la pista. Calidad, confort y tecnología se unen para ayudarte a dar tu mejor versión en cada partido.</p>
+                <!-- <button>Ver mas</button> -->
             </div>
             <div>
-                {{$descripcion}}
+                <img src="https://www.padeladdict.com/wp-content/uploads/2023/03/quienes-son-los-mejores-rematadores-del-padel-profesional-portada-1068x580-1.jpg" alt="">
             </div>
         </div>
     <section class="productos">

@@ -26,16 +26,27 @@ function anadirCarrito(posArray,id_compra) {
     carrito.compras[posArray].cantidad++
     actualizarCarroAhora();
 }
-function anadir(id_compra,precio,imagen,nombre) {
+function anadir(id_compra, precio, imagen, nombre,elemt) {
+    console.log(elemt)
+    // Buscar índice del producto en el carrito
+    const index = carrito.compras.findIndex(producto => producto.id === id_compra);
 
-    var positionArray = carrito.compras.push({
-       id: id_compra,
-       nombre: nombre,
-       precio: precio,
-       imagen:imagen,
-       cantidad: 1
-    });
-    console.log("se ha añadido al carrito el articulo con id == ",id_compra);
+    if (index !== -1) {
+        // Ya existe: eliminarlo del carrito
+        carrito.compras.splice(index, 1); // eliminamos del array
+        location.reload()
+    } else {
+        // No existe: añadirlo
+        carrito.compras.push({
+            id: id_compra,
+            nombre: nombre,
+            precio: precio,
+            imagen: imagen,
+            cantidad: 1
+        });
+
+    }
+    console.log(carrito.compras)
     actualizarCarroAhora();
 }
 function guardarEnLocalStorage(clave, array) {
@@ -51,17 +62,18 @@ function obtenerDeLocalStorage(clave) {
 }
 
 function actualizarCarroAhora(){
-    console.log(carrito);
+
     let compras = carrito.compras
     compras.forEach((element,index) => {
         // console.log(element.id)
         if (document.querySelector(".buttonAnadir_"+element.id)) {
             
-      
+     
         let elemento = document.querySelector(".buttonAnadir_"+element.id);
+       
         if (element.cantidad != -1) {
-            elemento.disabled = true;
-            elemento.innerHTML = "Añadido"
+            // elemento.disabled = true;
+            elemento.innerHTML = "Eliminar"
             elemento.style.backgroundColor = "red";
         }else{
             elemento.disabled = false;
@@ -69,6 +81,16 @@ function actualizarCarroAhora(){
             elemento.style.backgroundColor = "rgb(255, 199, 94)";
             compras.splice(index,1)
         }
+        // if (control = "anadir") {
+        //     elemento.disabled = false;
+        //     elemento.innerHTML = "Añadir"
+        //     elemento.style.backgroundColor = "rgb(255, 199, 94)";
+        //     compras.splice(index,1)
+        // }else{
+        //     // elemento.disabled = true;
+        //     elemento.innerHTML = "Eliminar"
+        //     elemento.style.backgroundColor = "red";
+        // }
     }
     });
 

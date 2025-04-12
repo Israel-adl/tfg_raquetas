@@ -10,7 +10,7 @@ Pagina palas
             <div style="display: flex; flex-direction:column; justify-content:center;align-items:start;gap:30px;padding:40px">
                 <h1 style="flex-grow: unset; text-align:start;">Tus mejores raquetas</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, dolorem iure illum magnam commodi numquam minima neque qui illo provident!</p>
-                <button>Ver mas</button>
+                <a href="{{route('palas')}}"><button>Ver mas</button></a>
             </div>
             <div>
                 <img src="https://www.padeladdict.com/wp-content/uploads/2023/03/quienes-son-los-mejores-rematadores-del-padel-profesional-portada-1068x580-1.jpg" alt="">
