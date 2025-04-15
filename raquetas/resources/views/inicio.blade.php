@@ -9,7 +9,7 @@ Pagina palas
         <div class="bannerPrincipal">
             <div style="display: flex; flex-direction:column; justify-content:center;align-items:start;gap:30px;padding:40px">
                 <h1 style="flex-grow: unset; text-align:start;">Tus mejores raquetas</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, dolorem iure illum magnam commodi numquam minima neque qui illo provident!</p>
+                <p>Descubre nuestra selección exclusiva de artículos diseñados para ofrecerte el máximo rendimiento dentro y fuera de la pista. Calidad, confort y tecnología se unen para ayudarte a dar tu mejor versión en cada partido.</p>
                 <a href="{{route('palas')}}"><button>Ver mas</button></a>
             </div>
             <div>
